@@ -1,15 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <Suspense>
+    <template #default>
+      <Users />
+    </template>
+    <template #fallback>
+      <div>Loading...</div>
+    </template>
+  </Suspense>
+  <SecondaryUsage />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Users from './components/Users'
+import SecondaryUsage from "./components/SecondaryUsage.vue";
 
 export default {
   name: 'App',
+  setup () {
+
+  },
   components: {
-    HelloWorld
+    Users,
+    SecondaryUsage
   }
 }
 </script>
